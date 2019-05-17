@@ -13,13 +13,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-login-cliente',
   templateUrl: 'login-cliente.html',
 })
-export class LoginClientePage {
+
+export class LoginClientePage 
+{
+model: LoginClientePage
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // this.model = new Login();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginClientePage');
   }
 
+  
 }

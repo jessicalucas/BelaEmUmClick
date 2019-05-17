@@ -10,4 +10,7 @@ import { LoginSalaoPage } from './login-salao';
     IonicPageModule.forChild(LoginSalaoPage),
   ],
 })
-export class LoginSalaoPageModule {}
+export class LoginSalaoPageModule {
+  email: string;
+    senha : string;    
+}
