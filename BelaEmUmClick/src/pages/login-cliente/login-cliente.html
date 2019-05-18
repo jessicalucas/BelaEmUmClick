@@ -6,24 +6,28 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <ion-title>
+      Login
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding> 
-  <h3>Entre ou crie sua conta</h3>
+<ion-content padding>
+
+  <h1>Exemplo de login</h1>
+
   <ion-list>
     <ion-item>
-      <ion-label stacked large>E-mail</ion-label>
-      <!-- <ion-input type="email" [(ngModel)]="model.email" placeholder="joao@email.com"></ion-input> -->
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label stacked large>Senha</ion-label>
-      <!-- <ion-input type="password" [(ngModel)]="model.senha" placeholder="Insira a Senha"></ion-input> -->
+      <ion-label stacked>Senha</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
     </ion-item>
-    <button ion-button block large color="dark">ENTRAR</button>
-    <button ion-button block large color="aposclicar" >CADASTRAR</button>
-    <button ion-button <!--(click)="validar();"-->>Salvar</button>
-    <button ion-button <!--(click)="novo();"-->>Novo</button> 
-   </ion-list>
-</ion-content> 
+  </ion-list>
+
+  <button ion-button block (click)="login()" color="primary">Logar</button>
+
+</ion-content>

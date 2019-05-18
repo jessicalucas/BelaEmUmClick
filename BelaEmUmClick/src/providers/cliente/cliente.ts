@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+// import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ClienteProvider {
-  private API_URL = 'https://reqres.in/api/'
+  private API_URL = 'https://localhost:44355/api/usuario/'
 
   constructor(public http: HttpClient) { }
 
@@ -93,13 +93,12 @@ export class ClienteProvider {
     });
   }
 
-  update(user: any) {
-    return new Promise((resolve, reject) => {
-      let url = this.API_URL + 'cliente/' + user.id;
-      let data = {
-        "first_name": user.first_name,
-        "last_name": user.last_name
-      }
+  // update(user: any) {
+  //   return new Promise((resolve, reject) => {
+  //     let url = this.API_URL + 'cliente/' + user.id;
+  //     let data = {
+  //       "nome": user.nome
+  //     }
 
       this.http.put(url, user)
         .subscribe((result: any) => {

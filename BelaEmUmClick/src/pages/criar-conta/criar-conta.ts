@@ -26,26 +26,26 @@
 
 
 
-import { ClienteProvider } from './../../providers/cliente/cliente';
+import { ClienteProvider} from './../../providers/cliente/cliente';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-create-account',
-  templateUrl: 'create-account.html',
+   selector: 'page-criar-conta',
+   templateUrl: 'criar-conta.html',
 })
 export class CriarContaPage {
-  model: User;
+  model: Cliente;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private userProvider: UsersProvider) {
-    this.model = new User();
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private clienteProvider: ClienteProvider) {
+    this.model = new Cliente();
     this.model.email = 'sydney@fife';
     this.model.password = 'pistol';
   }
 
   createAccount() {
-    this.userProvider.createAccount(this.model.email, this.model.password)
+    this.clienteProvider.createAccount(this.model.email, this.model.password)
       .then((result: any) => {
         this.toast.create({ message: 'Usuário criado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
 
@@ -60,7 +60,7 @@ export class CriarContaPage {
   }
 }
 
-export class User {
+export class Cliente {
   email: string;
   password: string;
 }

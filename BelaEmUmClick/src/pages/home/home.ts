@@ -10,7 +10,7 @@ export class HomePage {
   constructor(public navCtrl: NavController) { }
 
   openCreateAccount() {
-    this.navCtrl.push('CreateAccountPage');
+    this.navCtrl.push('CriarContaPage');
   }
 
   openLogin() {
