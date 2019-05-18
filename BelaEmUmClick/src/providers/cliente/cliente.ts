@@ -93,12 +93,12 @@ export class ClienteProvider {
     });
   }
 
-  // update(user: any) {
-  //   return new Promise((resolve, reject) => {
-  //     let url = this.API_URL + 'cliente/' + user.id;
-  //     let data = {
-  //       "nome": user.nome
-  //     }
+  update(user: any) {
+    return new Promise((resolve, reject) => {
+      let url = this.API_URL + 'cliente/' + user.id;
+      let data = {
+        // "nome": user.nome,
+      }
 
       this.http.put(url, user)
         .subscribe((result: any) => {
