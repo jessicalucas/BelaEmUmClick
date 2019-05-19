@@ -17,11 +17,10 @@ export class AgendaProvider {
   constructor(public http: Http) {
   }
 
-  getAll(page: number) {
+  getAll() {
     return new Promise((resolve, reject) => {
 
       let url = this.API_URL;
-      // + '/?per_page=10&page=' + page;
 
       this.http.get(url)
         .subscribe((result: any) => {

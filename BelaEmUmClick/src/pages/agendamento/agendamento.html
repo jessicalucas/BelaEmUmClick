@@ -5,11 +5,42 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Agendamento</ion-title>
+  <ion-navbar color="primary">
+    <ion-title >Lista de Agendamentos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <!-- <ion-searchbar [(ngModel)]="nome"></ion-searchbar> -->
+  <!-- <ion-button> Novo </ion-button> -->
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col>Cliente</ion-col>
+        <ion-col>Dia</ion-col>
+        <ion-col>Horário</ion-col>
+        <ion-col>Serviço</ion-col>
+        <ion-col>Salão</ion-col>
+        <ion-col>ID</ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-grid no-padding>
+      <button ion-item *ngFor="let item of result">
+        <ion-row>
+          <ion-col>{{ item.nome }}</ion-col>
+          <ion-col>{{ item.dia }}</ion-col>
+          <ion-col>{{ item.horario }}</ion-col>
+          <ion-col>{{ item.servico }}</ion-col>
+          <ion-col>{{ item.salao }}</ion-col>
+          <ion-col>{{ item.id }}</ion-col>
+        </ion-row>
+      </button>
+    </ion-grid>
+  </ion-card>
 
+  <ion-fab bottom right>
+    <button ion-fab color="primary" (click)="novoRegistro()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

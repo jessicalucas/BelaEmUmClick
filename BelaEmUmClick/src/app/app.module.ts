@@ -9,11 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { HttpModule } from '@angular/http';
 import { ClienteProvider } from '../providers/cliente/cliente';
 import { AgendaProvider } from '../providers/agenda/agenda';
+import { PesquisaPipe } from '../pipes/pesquisa/pesquisa';
+import { AgendamentoProvider } from '../providers/agendamento/agendamento';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage, 
+    PesquisaPipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,9 @@ import { AgendaProvider } from '../providers/agenda/agenda';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClienteProvider,
-    AgendaProvider
+    AgendaProvider,
+    AgendamentoProvider,
+    AgendamentoProvider
   ]
 })
 export class AppModule {}

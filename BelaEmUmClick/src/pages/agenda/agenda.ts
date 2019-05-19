@@ -16,7 +16,6 @@ import { AgendaProvider } from '../../providers/agenda/agenda';
 })
 export class AgendaPage {
   public agenda1: any[];
- public  page: number;
  public result: any;
   @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
 
@@ -27,7 +26,6 @@ export class AgendaPage {
 
     ionViewDidEnter() {
       this.agenda1 = [];
-      this.page = 1;
     }
   
     getAll() {
@@ -39,7 +37,7 @@ export class AgendaPage {
     }
 
     buscarAgenda(){
-      this.agendaProvider.getAll(1)
+      this.agendaProvider.getAll()
       .then((result: any) => {
         for (var i = 0; i < result.data.length; i++) {
           var user = result.data[i];
