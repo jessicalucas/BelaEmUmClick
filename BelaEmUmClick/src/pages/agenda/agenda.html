@@ -17,14 +17,19 @@
         <ion-col>Cliente</ion-col>
         <ion-col>Dia</ion-col>
         <ion-col>Horário</ion-col>
+        <ion-col>Serviço</ion-col>
+        <ion-col>Salão</ion-col>
       </ion-row>
     </ion-card-header>
     <ion-grid no-padding>
-      <button ion-item *ngFor="let item of agenda">
+      <button ion-item *ngFor="let item of result">
         <ion-row>
-          <ion-col>{{ item.cliente }}</ion-col>
+          <ion-col>{{ item.nome }}</ion-col>
           <ion-col>{{ item.dia }}</ion-col>
           <ion-col>{{ item.horario }}</ion-col>
+          <ion-col>{{ item.servico }}</ion-col>
+          <ion-col>{{ item.salao }}</ion-col>
+
         </ion-row>
       </button>
     </ion-grid>

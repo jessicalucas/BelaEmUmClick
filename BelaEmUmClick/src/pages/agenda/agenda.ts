@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, InfiniteScroll, ToastController } from 'ionic-angular';
+import { AgendaProvider } from '../../providers/agenda/agenda';
 
 /**
  * Generated class for the AgendaPage page.
@@ -14,9 +15,48 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'agenda.html',
 })
 export class AgendaPage {
-  private agenda: Array<Object> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public agenda1: any[];
+ public  page: number;
+ public result: any;
+  @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
 
+  private agenda: Array<Object> = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private agendaProvider: AgendaProvider) {
+    this.getAll();
+  }
+
+    ionViewDidEnter() {
+      this.agenda1 = [];
+      this.page = 1;
+    }
+  
+    getAll() {
+      this.agendaProvider.load()
+        .then(data => {
+          this.agenda1 = data;
+          this.result = this.agenda1;
+        });
+    }
+
+    buscarAgenda(){
+      this.agendaProvider.getAll(1)
+      .then((result: any) => {
+        for (var i = 0; i < result.data.length; i++) {
+          var user = result.data[i];
+          this.agenda1.push(user);
+        }
+
+        if (this.infiniteScroll) {
+          this.infiniteScroll.complete();
+          if (this.agenda1.length == result.total) {
+            this.infiniteScroll.enable(false);
+          }
+        }
+      })
+      .catch((error: any) => {
+        this.toast.create({ message: 'Erro ao listar agenda. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
+      });
+    
     this.agenda = [
       {
         "cliente": "Ricardo",
@@ -31,8 +71,8 @@ export class AgendaPage {
     ]
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AgendaPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad AgendaPage');
+  // }
 
 }

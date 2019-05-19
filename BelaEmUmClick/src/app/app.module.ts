@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HttpModule } from '@angular/http';
 import { ClienteProvider } from '../providers/cliente/cliente';
+import { AgendaProvider } from '../providers/agenda/agenda';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ClienteProvider } from '../providers/cliente/cliente';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ClienteProvider
+    ClienteProvider,
+    AgendaProvider
   ]
 })
 export class AppModule {}
