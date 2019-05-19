@@ -34,13 +34,23 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:    #ff487fc9,
+  secondary:  #f58b00fa,
+  danger:     #ff0000,
+  light:      #000000,
+  dark:       #000000
 );
 
+//Cores BackGround
+// $background: rgb(0, 0, 0);
+// $background-ios-color: #000000;
+// $background-md-color: #000000;
+
+// $text-color: black;
+// $text-button-color: black;
+// $button-default-md-text-color:black;
+// $action-sheet-ios-button-text-color: black;
+// $action-sheet-md-button-text-color: black;
 
 // App iOS Variables
 // --------------------------------------------------

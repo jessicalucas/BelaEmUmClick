@@ -6,10 +6,27 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Agenda</ion-title>
+    <ion-title>Agenda de Atendimentos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col>Cliente</ion-col>
+        <ion-col>Dia</ion-col>
+        <ion-col>Horário</ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-grid no-padding>
+      <button ion-item *ngFor="let item of agenda">
+        <ion-row>
+          <ion-col>{{ item.cliente }}</ion-col>
+          <ion-col>{{ item.dia }}</ion-col>
+          <ion-col>{{ item.horario }}</ion-col>
+        </ion-row>
+      </button>
+    </ion-grid>
+  </ion-card>
 </ion-content>

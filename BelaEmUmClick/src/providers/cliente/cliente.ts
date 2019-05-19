@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+// import { Observable } from 'rxjs/Observablek';
 
 /*
   Generated class for the ClienteProvider provider.
@@ -12,9 +13,17 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ClienteProvider {
-  private API_URL = 'https://localhost:44355/api/usuario/'
+  // private API_URL = 'https://localhost:44355/api/usuario/'
+  private API_URL = 'https://reqres.in/api/'
+
 
   constructor(public http: HttpClient) { }
+
+  // obterCliente(documento: string): Observable<ClientData[]> {
+  //   return this.http.get<ClientData[]>(
+  //     `${documento}`
+  //   );
+  // }
 
   createAccount(email: string, password: string) {
     return new Promise((resolve, reject) => {
@@ -53,7 +62,7 @@ export class ClienteProvider {
   getAll(page: number) {
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'cliente/?per_page=10&page=' + page;
+      let url = this.API_URL + 'users/?per_page=10&page=' + page;
 
       this.http.get(url)
         .subscribe((result: any) => {
@@ -67,7 +76,7 @@ export class ClienteProvider {
 
   get(id: number) {
     return new Promise((resolve, reject) => {
-      let url = this.API_URL + 'cliente/' + id;
+      let url = this.API_URL + 'users/' + id;
 
       this.http.get(url)
         .subscribe((result: any) => {
@@ -81,7 +90,7 @@ export class ClienteProvider {
 
   insert(user: any) {
     return new Promise((resolve, reject) => {
-      let url = this.API_URL + 'cliente/';
+      let url = this.API_URL + 'users/';
 
       this.http.post(url, user)
         .subscribe((result: any) => {
@@ -95,9 +104,10 @@ export class ClienteProvider {
 
   update(user: any) {
     return new Promise((resolve, reject) => {
-      let url = this.API_URL + 'cliente/' + user.id;
+      let url = this.API_URL + 'users/' + user.id;
       let data = {
-        // "nome": user.nome,
+        "first_name": user.first_name,
+        "last_name": user.last_name
       }
 
       this.http.put(url, user)
@@ -112,7 +122,7 @@ export class ClienteProvider {
 
   remove(id: number) {
     return new Promise((resolve, reject) => {
-      let url = this.API_URL + 'cliente/' + id;
+      let url = this.API_URL + 'users/' + id;
 
       this.http.delete(url)
         .subscribe((result: any) => {

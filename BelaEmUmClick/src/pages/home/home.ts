@@ -6,8 +6,17 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  constructor(public navCtrl: NavController) {
+    
+   }
 
-  constructor(public navCtrl: NavController) { }
+  abrirAgenda() {
+    this.navCtrl.push('AgendaPage')
+  }
+
+  abrirAgendmento(){
+    this.navCtrl.push('AgendamentoPage')
+  }
 
   openCreateAccount() {
     this.navCtrl.push('CriarContaPage');
