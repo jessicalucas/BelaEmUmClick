@@ -12,23 +12,22 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 export class LoginClientePage {
   model: Cliente;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private clienteProvider: ClienteProvider) {
+  // constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private clienteProvider: ClienteProvider) {
+  //   this.model = new Cliente();
+  // }
+
+  constructor(public navCtrl: NavController, private toast: ToastController,  private clienteProvider: ClienteProvider) {
     this.model = new Cliente();
-  }
+   }
 
   login() {
     this.clienteProvider.login(this.model.email, this.model.password)
       .then((result: any) => {
         this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
-        this.navCtrl.push('MenuPage');
-      })
+              })
       .catch((error: any) => {
         this.toast.create({ message: 'Erro ao efetuar login. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
-  }
-
-  abrirHome() {
-    this.navCtrl.push('MenuPage');
   }
 }
 

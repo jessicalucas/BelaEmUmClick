@@ -11,12 +11,14 @@ import { ClienteProvider } from '../providers/cliente/cliente';
 import { AgendaProvider } from '../providers/agenda/agenda';
 import { PesquisaPipe } from '../pipes/pesquisa/pesquisa';
 import { AgendamentoProvider } from '../providers/agendamento/agendamento';
+import { LoginClientePage } from '../pages/login-cliente/login-cliente';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, 
-    PesquisaPipe
+    // HomePage, 
+    PesquisaPipe,
+    LoginClientePage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { AgendamentoProvider } from '../providers/agendamento/agendamento';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    // HomePage,
+    LoginClientePage
   ],
   providers: [
     StatusBar,
@@ -34,7 +37,6 @@ import { AgendamentoProvider } from '../providers/agendamento/agendamento';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClienteProvider,
     AgendaProvider,
-    AgendamentoProvider,
     AgendamentoProvider
   ]
 })
