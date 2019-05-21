@@ -10,4 +10,7 @@ import { LoginClientePage } from './login-cliente';
     IonicPageModule.forChild(LoginClientePage),
   ],
 })
-export class LoginClientePageModule {}
+export class LoginClientePageModule {
+  email: string;
+  password: string;
+}

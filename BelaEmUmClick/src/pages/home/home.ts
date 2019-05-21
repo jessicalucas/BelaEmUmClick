@@ -23,10 +23,6 @@ export class HomePage {
   }
 
   openLogin() {
-    this.navCtrl.push('LoginPage');
-  }
-
-  openListUsers() {
-    this.navCtrl.push('UserListPage');
+    this.navCtrl.push('LoginClientePage');
   }
 }

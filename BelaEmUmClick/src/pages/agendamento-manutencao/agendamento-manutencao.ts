@@ -22,4 +22,10 @@ export class AgendamentoManutencaoPage {
     console.log('ionViewDidLoad AgendamentoManutencaoPage');
   }
 
+  // presentPopover(myEvent) {
+  //   let popover = this.popoverCtrl.create("YourPopoverPage");
+  //   popover.present({
+  //     ev: myEvent
+  //   });
+  // }
 }

@@ -20,7 +20,7 @@ export class AgendaProvider {
   getAll() {
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL;
+      let url = this.API_URL; 
 
       this.http.get(url)
         .subscribe((result: any) => {
