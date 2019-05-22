@@ -24,8 +24,10 @@ export class LoginClientePage {
     this.clienteProvider.login(this.model.email, this.model.password)
       .then((result: any) => {
         this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+        this.navCtrl.push('MenuPage');
               })
       .catch((error: any) => {
+        alert(error)
         this.toast.create({ message: 'Erro ao efetuar login. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
   }

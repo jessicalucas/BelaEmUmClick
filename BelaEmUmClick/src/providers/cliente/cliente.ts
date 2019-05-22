@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 // import { Observable } from 'rxjs/Observablek';
 
@@ -41,8 +41,8 @@ export class ClienteProvider {
         email: email,
         password: password
       };
-
-      this.http.post(this.API_URL + 'login', data)
+      let options = new RequestOptions({ params: {'email': email, 'senha': password}});
+      this.http.get(this.API_URL + "1", options)
         .subscribe((result: any) => {
           resolve(result.json());
         },
@@ -67,7 +67,7 @@ export class ClienteProvider {
     });
   }
 
-  get(id: number) {
+  get(id : number) {
     return new Promise((resolve, reject) => {
       let url = this.API_URL + 'users/' + id;
 
