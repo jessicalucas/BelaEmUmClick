@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AgendamentoProvider {
   data: any;
-  private API_URL = 'https://localhost:44355/api/carrinho'
+  private API_URL = 'https://salaoapi2019.azurewebsites.net/api/carrinho'
 
   constructor(public http: Http) {
   }

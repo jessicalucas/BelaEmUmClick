@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AgendaProvider {
   data: any;
-  private API_URL = 'https://localhost:44355/api/agenda'
+  private API_URL = 'https://salaoapi2019.azurewebsites.net/api/agenda'
 
   constructor(public http: Http) {
   }
@@ -40,7 +40,7 @@ export class AgendaProvider {
     return new Promise(resolve => {
       this.http
         .get(
-          'https://localhost:44355/api/agenda'
+          'https://salaoapi2019.azurewebsites.net/api/agenda'
         )
         .map(res => res.json())
         .subscribe(data => {

@@ -7,7 +7,7 @@ import { Md5 } from 'ts-md5';
 
 @Injectable()
 export class ClienteProvider {
-  private API_URL = 'https://localhost:44355/api/usuario/'
+  private API_URL = 'https://salaoapi2019.azurewebsites.net/api/usuario/'
 
 
   constructor(public http: Http) { }
@@ -99,35 +99,35 @@ export class ClienteProvider {
     });
   }
 
-  // update(user: any) {
-  //   return new Promise((resolve, reject) => {
-  //     let url = this.API_URL + 'users/' + user.id;
-  //     let data = {
-  //       "first_name": user.first_name,
-  //       "last_name": user.last_name
-  //     }
+  update(user: any) {
+    return new Promise((resolve, reject) => {
+      let url = this.API_URL + 'users/' + user.id;
+      let data = {
+        "first_name": user.first_name,
+        "last_name": user.last_name
+      }
 
-  //     this.http.put(url, user)
-  //       .subscribe((result: any) => {
-  //         resolve(result.json());
-  //       },
-  //         (error) => {
-  //           reject(error.json());
-  //         });
-  //   });
-  // }
+      this.http.put(url, user)
+        .subscribe((result: any) => {
+          resolve(result.json());
+        },
+          (error) => {
+            reject(error.json());
+          });
+    });
+  }
 
-  // remove(id: number) {
-  //   return new Promise((resolve, reject) => {
-  //     let url = this.API_URL + 'users/' + id;
+  remove(id: number) {
+    return new Promise((resolve, reject) => {
+      let url = this.API_URL + 'users/' + id;
 
-  //     this.http.delete(url)
-  //       .subscribe((result: any) => {
-  //         resolve(result.json());
-  //       },
-  //         (error) => {
-  //           reject(error.json());
-  //         });
-  //   });
-  // }
+      this.http.delete(url)
+        .subscribe((result: any) => {
+          resolve(result.json());
+        },
+          (error) => {
+            reject(error.json());
+          });
+    });
+  }
 }
