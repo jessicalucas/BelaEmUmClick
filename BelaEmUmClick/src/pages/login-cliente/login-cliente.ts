@@ -16,9 +16,10 @@ export class LoginClientePage {
   //   this.model = new Cliente();
   // }
 
-  constructor(public navCtrl: NavController, private toast: ToastController,  private clienteProvider: ClienteProvider) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, private toast: ToastController,  private clienteProvider: ClienteProvider) {
     this.model = new Cliente();
    }
+
 
   login() {
     this.clienteProvider.login(this.model.email, this.model.password)
@@ -30,6 +31,10 @@ export class LoginClientePage {
         alert(error)
         this.toast.create({ message: 'Erro ao efetuar login. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
+  }
+
+  openCreateAccount() {
+    this.navCtrl.push('CriarContaPage');
   }
 }
 

@@ -10,4 +10,9 @@ import { CriarContaPage } from './criar-conta';
     IonicPageModule.forChild(CriarContaPage),
   ],
 })
-export class CriarContaPageModule {}
+export class CriarContaPageModule {
+  email: string;
+  password: string;
+  nome: string;
+  // CPF: string;
+}

@@ -13,9 +13,20 @@
 </ion-header>
 
 <ion-content padding>
+  <!-- <form *ngIf="model" [formGroup]="model" (ngSubmit)="createAccount()"> -->
   <ion-list>
+
     <ion-item>
-      <ion-label stacked>Email</ion-label>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="model.nome"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label stacked>CPF</ion-label>
+      <ion-input type="text" name="CPF" (blur)="cpf_cnpj = format(cpf_cnpj)" [(ngModel)]="model.CPF"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label stacked>E-mail</ion-label>
       <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
     </ion-item>
 
@@ -24,7 +35,10 @@
       <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
     </ion-item>
   </ion-list>
-
+  <!-- <button type="submit">Cadastrar</button> -->
   <button ion-button block (click)="createAccount()" color="primary">Criar conta</button>
+  <!-- </form> -->
+
+
 
 </ion-content>
