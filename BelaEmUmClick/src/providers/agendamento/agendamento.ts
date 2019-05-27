@@ -34,7 +34,7 @@ export class AgendamentoProvider {
     return new Promise(resolve => {
       this.http
         .get(
-          'https://localhost:44355/api/carrinho'
+          'https://salaoapi2019.azurewebsites.net/api/carrinho'
         )
         .map(res => res.json())
         .subscribe(data => {
